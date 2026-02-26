@@ -1,0 +1,3 @@
+@tag:nextEditSuggestions
+C_Cpp.copilotHover
+hover
