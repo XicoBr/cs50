@@ -3,32 +3,35 @@
 
 int main(void)
 {
-    int  vector_size = 3;
-    int *vector = malloc(vector_size * sizeof(int));
-    int tmp;
+    int vec_size = 5;
+    int *vector = malloc(vec_size * sizeof(int));
+    int index_minor;
 
-    for(int i = 0; i < vector_size; i++)
+    for (int i = 0; i < vec_size; i++)
     {
-        printf("%ist number: ", i + 1);
-        scanf("%i", &vector[i]);
+        printf("%i.st number: ", i + 1);
+        scanf("%i", vector + i);
     }
 
-    for (int i = 0; i < vector_size - 1; i++)
+    int tmp;
+    for (int i = 0; i < vec_size - 1; i++)
     {
-        for (int j = i + 1; j < vector_size; j++)
+        index_minor = i;
+        for (int j = i + 1; j < vec_size; j++)
         {
-            if (vector[j] < vector[i])
+            if (vector[index_minor] > vector[j])
             {
-                tmp = vector[j];
-                vector[j] = vector[i];
-                vector[i] = tmp;
+                index_minor = j;
             }
+            tmp = vector[index_minor];
+            vector[index_minor] = vector[i];
+            vector[i] = tmp;
         }
     }
 
-    for (int i = 0; i < vector_size; i++)
+    for(int i = 0; i < vec_size; i++)
     {
-        printf("%i\t", vector[i]);
+        printf("%i\n", vector[i]);
     }
 
     free(vector);
