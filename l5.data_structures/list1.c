@@ -32,4 +32,6 @@ int main(void)
         printf("%i\n", ptr->number);
         ptr = ptr->next;
     }
+    // linha de teste
+    return 0;
 }
